@@ -34,11 +34,13 @@ public  class AccountController {
 ------------------------------------------------------------------- Java Script ----------------------------------------------------------------------
 import { LightningElement, api, wire, track } from 'lwc';
 import fetchAccounts from '@salesforce/apex/AccountController.fetchAccounts';
+
 import { NavigationMixin } from 'lightning/navigation';
 
 const actions = [
-    {label:'view',name:'view'},
-    {label:'edit',name:'edit'},
+    {label:'View',name:'view'},
+    {label:'Edit',name:'edit'},
+    
 ];
 
 const columns = [
@@ -95,10 +97,14 @@ export default class NewLWC extends NavigationMixin( LightningElement ) {
                     }
                 });
                 break;
+            
+            
             default:
         }
 
     }
+     
+    
 
     handleSearchChange( event ) {
 
@@ -117,7 +123,7 @@ export default class NewLWC extends NavigationMixin( LightningElement ) {
 
             this.availableAccounts = this.initialRecords;
             console.log( 'Account Records are ' + JSON.stringify( this.availableAccounts ) );
-            
+           // this.ImperativeCall();
             if ( this.availableAccounts ) {
 
                 let recs = [];
@@ -160,4 +166,6 @@ export default class NewLWC extends NavigationMixin( LightningElement ) {
         }        
 
     }
+
+    
 }
